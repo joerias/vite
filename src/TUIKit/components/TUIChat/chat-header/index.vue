@@ -1,154 +1,151 @@
 <template>
-  <div :class="['chat-header', !isPC && 'chat-header-h5']">
-    <div
-      v-if="!isPC"
-      :class="['chat-header-back', !isPC && 'chat-header-h5-back']"
-      @click="closeChat(currentConversation.conversationID)"
-    >
-      <Icon :file="backSVG" />
-    </div>
-    <div class="chat-header-container">
-      <div :class="['chat-header-content', !isPC && 'chat-header-h5-content']">
-        {{ currentConversationName }}
-      </div>
-      <div>
-        <!-- <JoinGroupCard v-if="isPC" /> -->
-      </div>
-    </div>
-    <div :class="['chat-header-setting', !isPC && 'chat-header-h5-setting']">
-      <div
-        v-for="(item, index) in extensions"
-        :key="index"
-        @click.stop="handleExtensions(item)"
-      >
-        <Icon :file="item.icon" />
-      </div>
-    </div>
-  </div>
+	<div :class="['chat-header', !isPC && 'chat-header-h5']">
+		<div
+			v-if="!isPC"
+			:class="['chat-header-back', !isPC && 'chat-header-h5-back']"
+			@click="closeChat(currentConversation.conversationID)"
+		>
+			<Icon :file="backSVG" />
+		</div>
+		<div class="chat-header-container">
+			<div :class="['chat-header-content', !isPC && 'chat-header-h5-content']">
+				{{ currentConversationName }}
+			</div>
+			<div>
+				<!-- <JoinGroupCard v-if="isPC" /> -->
+			</div>
+		</div>
+		<div :class="['chat-header-setting', !isPC && 'chat-header-h5-setting']">
+			<div v-for="(item, index) in extensions" :key="index" @click.stop="handleExtensions(item)">
+				<Icon :file="item.icon" />
+			</div>
+		</div>
+	</div>
 </template>
 <script lang="ts" setup>
-import { ref, onMounted, onUnmounted } from '../../../adapter-vue';
+import { ref, onMounted, onUnmounted } from "../../../adapter-vue";
 import TUIChatEngine, {
-  TUIStore,
-  StoreName,
-  TUITranslateService,
-  IConversationModel,
-} from '@tencentcloud/chat-uikit-engine';
-import TUICore, { TUIConstants, ExtensionInfo } from '@tencentcloud/tui-core';
+	TUIStore,
+	StoreName,
+	TUITranslateService,
+	IConversationModel,
+} from "@tencentcloud/chat-uikit-engine";
+import TUICore, { TUIConstants, ExtensionInfo } from "@tencentcloud/tui-core";
 // import { JoinGroupCard } from '@tencentcloud/call-uikit-vue';
-import Icon from '../../common/Icon.vue';
-import backSVG from '../../../assets/icon/back.svg';
-import { isPC } from '../../../utils/env';
+import Icon from "../../common/Icon.vue";
+import backSVG from "../../../assets/icon/back.svg";
+import { isPC } from "../../../utils/env";
 
-const emits = defineEmits(['closeChat']);
+const emits = defineEmits(["closeChat"]);
 const currentConversation = ref<IConversationModel>();
-const currentConversationName = ref('');
+const currentConversationName = ref("");
 const typingStatus = ref(false);
-const groupID = ref('');
+const groupID = ref("");
 const extensions = ref<ExtensionInfo[]>([]);
 
 onMounted(() => {
-  TUIStore.watch(StoreName.CONV, {
-    currentConversation: onCurrentConversationUpdated,
-  });
+	TUIStore.watch(StoreName.CONV, {
+		currentConversation: onCurrentConversationUpdated,
+	});
 
-  TUIStore.watch(StoreName.CHAT, {
-    typingStatus: onTypingStatusUpdated,
-  });
+	TUIStore.watch(StoreName.CHAT, {
+		typingStatus: onTypingStatusUpdated,
+	});
 });
 
 onUnmounted(() => {
-  TUIStore.unwatch(StoreName.CONV, {
-    currentConversation: onCurrentConversationUpdated,
-  });
+	TUIStore.unwatch(StoreName.CONV, {
+		currentConversation: onCurrentConversationUpdated,
+	});
 
-  TUIStore.unwatch(StoreName.CHAT, {
-    typingStatus: onTypingStatusUpdated,
-  });
+	TUIStore.unwatch(StoreName.CHAT, {
+		typingStatus: onTypingStatusUpdated,
+	});
 });
 
 const closeChat = (conversationID: string | undefined) => {
-  emits('closeChat', conversationID);
+	emits("closeChat", conversationID);
 };
 
 const handleExtensions = (item: ExtensionInfo) => {
-  item.listener.onClicked?.({ groupID: groupID.value });
+	item.listener.onClicked?.({ groupID: groupID.value });
 };
 
 function onCurrentConversationUpdated(conversation: IConversationModel) {
-  const isGroup = conversation?.type === TUIChatEngine.TYPES.CONV_GROUP;
-  if (isGroup && currentConversation.value?.conversationID !== conversation?.conversationID) {
-    extensions.value = TUICore.getExtensionList(TUIConstants.TUIChat.EXTENSION.CHAT_HEADER.EXT_ID, { filterManageGroup: !isGroup });
-  }
-  if (!isGroup) {
-    extensions.value = [];
-  }
-  currentConversation.value = conversation;
-  groupID.value = currentConversation.value?.groupProfile?.groupID;
-  currentConversationName.value = currentConversation?.value?.getShowName();
+	const isGroup = conversation?.type === TUIChatEngine.TYPES.CONV_GROUP;
+	if (isGroup && currentConversation.value?.conversationID !== conversation?.conversationID) {
+		extensions.value = TUICore.getExtensionList(TUIConstants.TUIChat.EXTENSION.CHAT_HEADER.EXT_ID, {
+			filterManageGroup: !isGroup,
+		});
+	}
+	if (!isGroup) {
+		extensions.value = [];
+	}
+	currentConversation.value = conversation;
+	groupID.value = currentConversation.value?.groupProfile?.groupID;
+	currentConversationName.value = currentConversation?.value?.getShowName();
 }
 
 function onTypingStatusUpdated(status: boolean) {
-  typingStatus.value = status;
-  if (typingStatus.value) {
-    currentConversationName.value = TUITranslateService.t('TUIChat.对方正在输入');
-  } else {
-    currentConversationName.value = currentConversation.value?.getShowName() || '';
-  }
+	typingStatus.value = status;
+	if (typingStatus.value) {
+		currentConversationName.value = TUITranslateService.t("TUIChat.对方正在输入");
+	} else {
+		currentConversationName.value = currentConversation.value?.getShowName() || "";
+	}
 }
-
 </script>
 <style lang="scss" scoped>
 .chat-header {
-  display: flex;
-  min-width: 0;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+	display: flex;
+	min-width: 0;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
 
-  &-container {
-    display: flex;
-    min-width: 0;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
+	&-container {
+		display: flex;
+		min-width: 0;
+		flex-direction: column;
+		justify-content: flex-start;
+	}
 
-  &-content {
-    margin-right: 20px;
-    flex: 1;
-    font-size: 16px;
-    line-height: 30px;
-    font-family: PingFangSC-Medium;
-    font-weight: 500;
-    color: #000;
-    letter-spacing: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
+	&-content {
+		margin-right: 20px;
+		flex: 1;
+		font-size: 16px;
+		line-height: 30px;
+		font-family: PingFangSC-Medium;
+		font-weight: 500;
+		color: #000;
+		letter-spacing: 0;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
 
-  &-back,
-  &-setting {
-    width: 27px;
-    height: 27px;
+	&-back,
+	&-setting {
+		width: 27px;
+		height: 27px;
 
-    .icon {
-      width: 100%;
-      height: 100%;
-    }
-  }
+		.icon {
+			width: 100%;
+			height: 100%;
+		}
+	}
 }
 
 .chat-header-h5 {
-  &-back {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+	&-back {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 
-  &-content{
-    margin: 0 20px;
-    text-align: center;
-  }
+	&-content {
+		margin: 0 20px;
+		text-align: center;
+	}
 }
 </style>

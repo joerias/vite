@@ -8,9 +8,57 @@ importers:
 
   .:
     dependencies:
+      '@tencentcloud/call-uikit-vue':
+        specifier: ^3.3.0
+        version: 3.3.0
+      '@tencentcloud/chat':
+        specifier: ^3.4.0
+        version: 3.4.0
+      '@tencentcloud/chat-uikit-engine':
+        specifier: ^2.1.4
+        version: 2.1.4
       '@tencentcloud/chat-uikit-vue':
         specifier: ^2.1.4
         version: 2.1.4(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/extension-document@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0)))(@tiptap/extension-image@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0)))(@tiptap/extension-mention@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0)(@tiptap/suggestion@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0)))(@tiptap/extension-paragraph@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0)))(@tiptap/extension-placeholder@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0))(@tiptap/extension-text@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0)))(@tiptap/pm@2.4.0)(@tiptap/suggestion@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0))(@vue/composition-api@1.7.2(vue@3.4.29))(pinia@2.1.7(@vue/composition-api@1.7.2(vue@3.4.29))(vue@3.4.29))(vue@3.4.29)
+      '@tencentcloud/tui-core':
+        specifier: ^2.1.4
+        version: 2.1.4
+      '@tencentcloud/tui-customer-service-plugin':
+        specifier: ^2.1.4
+        version: 2.1.4(@tencentcloud/tui-core@2.1.4)(@vue/composition-api@1.7.2(vue@3.4.29))(vue@3.4.29)
+      '@tencentcloud/tui-emoji-plugin':
+        specifier: ^2.1.4
+        version: 2.1.4(vue@3.4.29)
+      '@tencentcloud/universal-api':
+        specifier: ^2.1.4
+        version: 2.1.4
+      '@tiptap/core':
+        specifier: ^2.4.0
+        version: 2.4.0(@tiptap/pm@2.4.0)
+      '@tiptap/extension-document':
+        specifier: ^2.4.0
+        version: 2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))
+      '@tiptap/extension-image':
+        specifier: ^2.4.0
+        version: 2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))
+      '@tiptap/extension-mention':
+        specifier: ^2.4.0
+        version: 2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0)(@tiptap/suggestion@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0))
+      '@tiptap/extension-paragraph':
+        specifier: ^2.4.0
+        version: 2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))
+      '@tiptap/extension-placeholder':
+        specifier: ^2.4.0
+        version: 2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0)
+      '@tiptap/extension-text':
+        specifier: ^2.4.0
+        version: 2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))
+      dayjs:
+        specifier: ^1.11.11
+        version: 1.11.11
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       vue:
         specifier: ^3.4.21
         version: 3.4.29

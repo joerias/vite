@@ -1,30 +1,33 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup lang="ts">
+import { ref, onMounted } from "vue";
+import { TUIStore, StoreName, TUIConversationService } from "@tencentcloud/chat-uikit-engine";
+import { TUIChat } from "./TUIKit";
+import { TUICallKit } from "@tencentcloud/call-uikit-vue";
+import { loadGroup } from "./TUIKit/config/connectTUIKit";
+
+const groupID = "@TGS#3ZHIWSNOU";
+
+onMounted(() => {
+	// setTimeout(() => loadGroup(groupID), 1500);
+});
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+	<div class="TUIKit">
+		<div class="TUIKit-main-container">
+			<TUIChat> <div class="loading">loading</div> </TUIChat>
+			<TUICallKit class="callkit-container" :allowedMinimized="true" :allowedFullScreen="false" />
+		</div>
+	</div>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+<style scoped lang="scss">
+@import "./TUIKit/assets/styles/common.scss";
+@import "./TUIKit/assets/styles/sample.scss";
+.loading {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
 }
 </style>

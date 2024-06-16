@@ -9,7 +9,23 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tencentcloud/call-uikit-vue": "^3.3.0",
+    "@tencentcloud/chat": "^3.4.0",
+    "@tencentcloud/chat-uikit-engine": "^2.1.4",
     "@tencentcloud/chat-uikit-vue": "^2.1.4",
+    "@tencentcloud/tui-core": "^2.1.4",
+    "@tencentcloud/tui-customer-service-plugin": "^2.1.4",
+    "@tencentcloud/tui-emoji-plugin": "^2.1.4",
+    "@tencentcloud/universal-api": "^2.1.4",
+    "@tiptap/core": "^2.4.0",
+    "@tiptap/extension-document": "^2.4.0",
+    "@tiptap/extension-image": "^2.4.0",
+    "@tiptap/extension-mention": "^2.4.0",
+    "@tiptap/extension-paragraph": "^2.4.0",
+    "@tiptap/extension-placeholder": "^2.4.0",
+    "@tiptap/extension-text": "^2.4.0",
+    "dayjs": "^1.11.11",
+    "lodash": "^4.17.21",
     "vue": "^3.4.21"
   },
   "devDependencies": {
