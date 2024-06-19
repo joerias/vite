@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import { TUIStore, StoreName, TUIConversationService } from "@tencentcloud/chat-uikit-engine";
+import { onMounted } from "vue";
 import { TUIChat } from "./TUIKit";
 import { TUICallKit } from "@tencentcloud/call-uikit-vue";
-import { loadGroup } from "./TUIKit/config/connectTUIKit";
+import { login, loadGroup } from "./TUIKit/config/connectTUIKit";
 
-const groupID = "@TGS#3ZHIWSNOU";
+// const groupID = "@TGS#3ZHIWSNOU";
+const groupID = "@TGS#36I6KMNOK";
 
-onMounted(() => {
-	// setTimeout(() => loadGroup(groupID), 1500);
+onMounted(async () => {
+	await login();
+	await loadGroup(groupID);
 });
 </script>
 
