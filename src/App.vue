@@ -1,34 +1,62 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
-import { TUIChat } from "./TUIKit";
-import { TUICallKit } from "@tencentcloud/call-uikit-vue";
-import { login, loadGroup } from "./TUIKit/config/connectTUIKit";
+import { ref, onMounted } from "vue";
+import { login, loadGroup, createGroup, getMember } from "@/TUIKit/config/connectTUIKit";
+import TUIKitComp from "@/components/TUIKitComponent/index.vue";
 
 // const groupID = "@TGS#3ZHIWSNOU";
-const groupID = "@TGS#36I6KMNOK";
+const groupID = "@TGS#3WP76SPOH";
 
 onMounted(async () => {
 	await login();
-	await loadGroup(groupID);
+	await loadGroup(groupID, () => getMember(groupID));
 });
+
+const group = ref("cat,dog");
+const handleCreateGroup = async () => {
+	const list = group.value.trim().split(",");
+	const groupId = await createGroup(list);
+	await loadGroup(groupId);
+};
 </script>
 
 <template>
-	<div class="TUIKit">
-		<div class="TUIKit-main-container">
-			<TUIChat> <div class="loading">loading</div> </TUIChat>
-			<TUICallKit class="callkit-container" :allowedMinimized="true" :allowedFullScreen="false" />
+	<div class="container">
+		<div class="side">
+			<div class="box">
+				<div>自动载入群组 {{ groupID }}</div>
+			</div>
+			<div class="box">
+				<input v-model="group" />
+				<button @click="handleCreateGroup">多人群组</button>
+			</div>
+		</div>
+		<div class="main">
+			<TUIKitComp />
 		</div>
 	</div>
 </template>
 
-<style scoped lang="scss">
-@import "./TUIKit/assets/styles/common.scss";
-@import "./TUIKit/assets/styles/sample.scss";
-.loading {
+<style lang="scss" scoped>
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+}
+.container {
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
+	width: 100wh;
+	height: 100vh;
+}
+.side {
+	flex: 0 0 400px;
+	border-right: 1px solid #eee;
+}
+.box {
+	margin: 0 5px;
+	padding: 15px 5px;
+	border-bottom: 1px solid #eee;
+}
+.main {
+	flex: 1;
 }
 </style>

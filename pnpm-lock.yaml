@@ -19,16 +19,16 @@ importers:
         version: 2.1.4
       '@tencentcloud/chat-uikit-vue':
         specifier: ^2.1.4
-        version: 2.1.4(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/extension-document@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0)))(@tiptap/extension-image@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0)))(@tiptap/extension-mention@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0)(@tiptap/suggestion@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0)))(@tiptap/extension-paragraph@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0)))(@tiptap/extension-placeholder@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0))(@tiptap/extension-text@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0)))(@tiptap/pm@2.4.0)(@tiptap/suggestion@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0))(@vue/composition-api@1.7.2(vue@3.4.29))(pinia@2.1.7(@vue/composition-api@1.7.2(vue@3.4.29))(vue@3.4.29))(vue@3.4.29)
+        version: 2.1.4(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/extension-document@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0)))(@tiptap/extension-image@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0)))(@tiptap/extension-mention@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0)(@tiptap/suggestion@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0)))(@tiptap/extension-paragraph@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0)))(@tiptap/extension-placeholder@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0))(@tiptap/extension-text@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0)))(@tiptap/pm@2.4.0)(@tiptap/suggestion@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0))(@vue/composition-api@1.7.2(vue@3.4.29(typescript@5.5.2)))(pinia@2.1.7(@vue/composition-api@1.7.2(vue@3.4.29(typescript@5.5.2)))(typescript@5.5.2)(vue@3.4.29(typescript@5.5.2)))(vue@3.4.29(typescript@5.5.2))
       '@tencentcloud/tui-core':
         specifier: ^2.1.4
         version: 2.1.4
       '@tencentcloud/tui-customer-service-plugin':
         specifier: ^2.1.4
-        version: 2.1.4(@tencentcloud/tui-core@2.1.4)(@vue/composition-api@1.7.2(vue@3.4.29))(vue@3.4.29)
+        version: 2.1.4(@tencentcloud/tui-core@2.1.4)(@vue/composition-api@1.7.2(vue@3.4.29(typescript@5.5.2)))(vue@3.4.29(typescript@5.5.2))
       '@tencentcloud/tui-emoji-plugin':
         specifier: ^2.1.4
-        version: 2.1.4(vue@3.4.29)
+        version: 2.1.4(vue@3.4.29(typescript@5.5.2))
       '@tencentcloud/universal-api':
         specifier: ^2.1.4
         version: 2.1.4
@@ -61,17 +61,20 @@ importers:
         version: 4.17.21
       vue:
         specifier: ^3.4.21
-        version: 3.4.29
+        version: 3.4.29(typescript@5.5.2)
     devDependencies:
       '@vitejs/plugin-vue':
         specifier: ^5.0.4
-        version: 5.0.5(vite@5.3.1(sass@1.77.5))(vue@3.4.29)
+        version: 5.0.5(vite@5.3.1(sass@1.77.5))(vue@3.4.29(typescript@5.5.2))
       sass:
         specifier: ^1.77.5
         version: 1.77.5
       sass-loader:
         specifier: ^14.2.1
         version: 14.2.1(sass@1.77.5)
+      typescript:
+        specifier: ^5.5.2
+        version: 5.5.2
       vite:
         specifier: ^5.2.0
         version: 5.3.1(sass@1.77.5)
@@ -334,6 +337,9 @@ packages:
   '@tencentcloud/chat-uikit-engine@2.1.4':
     resolution: {integrity: sha512-iKYCBH02tNt3R75UyIFTzf5bZagLfg0e8bqAVSlv9Vqa7R5DFuYynpx9m0ulQsj0cm/HGhG12jdpkAIk4Yi5Ow==}
 
+  '@tencentcloud/chat-uikit-engine@2.2.2':
+    resolution: {integrity: sha512-Ds+FdZUkqzDe90KzXUn9WhaspO4+APpGsCdglXRRZwz+w4AkqHqJEtEYW9wwLvNcc3fb961s6yq/bLzFBSW3/Q==}
+
   '@tencentcloud/chat-uikit-vue@2.1.4':
     resolution: {integrity: sha512-8qVs06FAgGHCFJjigiDZY9hxseBl0efKk0HHFZT+1km1gz+orQFn4bdwMEf+uqjAxlXzbf8vijIYDVVM9Fw3/w==}
     peerDependencies:
@@ -359,8 +365,21 @@ packages:
   '@tencentcloud/tui-core@2.1.4':
     resolution: {integrity: sha512-GE8ujfC4ZUGo+GCCCAdW2IX3J+FQONRISjxZoENMYPM3bAR44b0qmG49VOf+ytj3B4ByAbUDmNTbXUzSZgAr/w==}
 
+  '@tencentcloud/tui-core@2.2.2':
+    resolution: {integrity: sha512-C4paX2DiogsE4mQZdB53ibyb26Ts4cibC6t9uPhKCr3pquZTJ18Dgd5WNihxh2haCXMHKa5uHrhI5NPOHvuD5g==}
+
   '@tencentcloud/tui-customer-service-plugin@2.1.4':
     resolution: {integrity: sha512-611fp1v5LDW+mChfPc2vruAi9LBwukq4dI4A8R0sztTqngLkmKm0dTGhOxABhCbR+iowPyYPctto/kixHRn1sA==}
+    peerDependencies:
+      '@tencentcloud/tui-core': latest
+      '@vue/composition-api': ^1.0.0-rc.1
+      vue: ^2.0.0 || >=3.0.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+
+  '@tencentcloud/tui-customer-service-plugin@2.2.2':
+    resolution: {integrity: sha512-ZlqYheBoB6TdsMlzGKyeiVThQMUk1ea4zfW3v+xOjoZCTtLMMvb0nSjJgdGdwSDNojwZf6zzTwHlTM1MMTVVHg==}
     peerDependencies:
       '@tencentcloud/tui-core': latest
       '@vue/composition-api': ^1.0.0-rc.1
@@ -374,11 +393,19 @@ packages:
     peerDependencies:
       vue: ^2.0.0 || >=3.0.0
 
+  '@tencentcloud/tui-emoji-plugin@2.2.2':
+    resolution: {integrity: sha512-4F9TGndkpRuCTOGFH51Ih03FmNiK/ApdIggtjIekYv6XIrq0sEpdFQt6XxXkakAzH9VwOAqzD/K5/yhDamYBOQ==}
+    peerDependencies:
+      vue: ^2.0.0 || >=3.0.0
+
   '@tencentcloud/tuiroom-engine-js@2.4.1':
     resolution: {integrity: sha512-Wfukb5Z0yeo9351D6fiGtrmKxUybqNv4WZOzYwrotyINkBia9N2pxcrvkND5LVPD/9mQGx6ihErBM1s4WfkDTA==}
 
   '@tencentcloud/universal-api@2.1.4':
     resolution: {integrity: sha512-DKlbGEpoDZ09KvHheV0LNUEBjZEjOFdfe4nqMY+HVJI0X242/22f2kXxmfP0b/6YCul6pEUUu2TwIWZnnwcYDQ==}
+
+  '@tencentcloud/universal-api@2.2.2':
+    resolution: {integrity: sha512-vjHNUWDBglh8PZh2s27VpSggHLlNbPmTgUP1ApSW7i+3D1YC1ozkFNwTidWL9B4/bH4G0y+N5K+xtTSJ6gztQA==}
 
   '@tiptap/core@2.4.0':
     resolution: {integrity: sha512-YJSahk8pkxpCs8SflCZfTnJpE7IPyUWIylfgXM2DefjRQa5DZ+c6sNY0s/zbxKYFQ6AuHVX40r9pCfcqHChGxQ==}
@@ -770,8 +797,13 @@ packages:
   trtc-sdk-v5@5.6.3-beta.1:
     resolution: {integrity: sha512-LQR47csDx7PydKxIKva9yjCQ6c1bN3GhBiJa/0r/2YCWvfxbkdf7O9WSyZJzzjOHGiygRpQC/dUOnlKFqoA5RQ==}
 
-  tuicall-engine-webrtc@3.0.9:
-    resolution: {integrity: sha512-U+UwOZOVdsYuToSEYUJMh36DVAymnWY5R2SGeHK80Yf/PNM2xdxjdd8hdZM34D4nY4GXUzpdgIrdoMfhiRo/EQ==}
+  tuicall-engine-webrtc@3.1.0:
+    resolution: {integrity: sha512-v1Gjt+AvkOlgEmg/1eqy76NlODrZ1fDjHMHSudYauKLn5jgdnCkHbKGCO8gH4nEFhQBDL8QJGcg1zVHaRIagiA==}
+
+  typescript@5.5.2:
+    resolution: {integrity: sha512-NcRtPEOsPFFWjobJEtfihkLCZCXZt/os3zf8nTxjVH3RvTSxjrCamJpbExGvYOF+tFHc3pA65qpdwPbzjohhew==}
+    engines: {node: '>=14.17'}
+    hasBin: true
 
   uc.micro@2.1.0:
     resolution: {integrity: sha512-ARDJmphmdvUk6Glw7y9DQ2bFkKBHwQHLi2lsaH6PPmz/Ka9sFOBsBluozhDltWmnv9u/cF6Rt87znRTPV+yp/A==}
@@ -972,26 +1004,26 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.18.0':
     optional: true
 
-  '@tencentcloud/call-uikit-vue2.6@3.3.0(vue@3.4.29)':
+  '@tencentcloud/call-uikit-vue2.6@3.3.0(vue@3.4.29(typescript@5.5.2))':
     dependencies:
       '@tencentcloud/chat': 3.4.0
-      '@tencentcloud/tui-core': 2.1.4
-      '@vue/composition-api': 1.7.2(vue@3.4.29)
-      tuicall-engine-webrtc: 3.0.9
+      '@tencentcloud/tui-core': 2.2.2
+      '@vue/composition-api': 1.7.2(vue@3.4.29(typescript@5.5.2))
+      tuicall-engine-webrtc: 3.1.0
     transitivePeerDependencies:
       - vue
 
   '@tencentcloud/call-uikit-vue2@3.3.0':
     dependencies:
       '@tencentcloud/chat': 3.4.0
-      '@tencentcloud/tui-core': 2.1.4
-      tuicall-engine-webrtc: 3.0.9
+      '@tencentcloud/tui-core': 2.2.2
+      tuicall-engine-webrtc: 3.1.0
 
   '@tencentcloud/call-uikit-vue@3.3.0':
     dependencies:
       '@tencentcloud/chat': 3.4.0
-      '@tencentcloud/tui-core': 2.1.4
-      tuicall-engine-webrtc: 3.0.9
+      '@tencentcloud/tui-core': 2.2.2
+      tuicall-engine-webrtc: 3.1.0
 
   '@tencentcloud/chat-uikit-engine@2.1.4':
     dependencies:
@@ -999,17 +1031,23 @@ snapshots:
       tim-profanity-filter-plugin: 1.1.0
       tim-upload-plugin: 1.3.0
 
-  '@tencentcloud/chat-uikit-vue@2.1.4(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/extension-document@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0)))(@tiptap/extension-image@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0)))(@tiptap/extension-mention@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0)(@tiptap/suggestion@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0)))(@tiptap/extension-paragraph@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0)))(@tiptap/extension-placeholder@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0))(@tiptap/extension-text@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0)))(@tiptap/pm@2.4.0)(@tiptap/suggestion@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0))(@vue/composition-api@1.7.2(vue@3.4.29))(pinia@2.1.7(@vue/composition-api@1.7.2(vue@3.4.29))(vue@3.4.29))(vue@3.4.29)':
+  '@tencentcloud/chat-uikit-engine@2.2.2':
+    dependencies:
+      '@tencentcloud/chat': 3.4.0
+      tim-profanity-filter-plugin: 1.1.0
+      tim-upload-plugin: 1.3.0
+
+  '@tencentcloud/chat-uikit-vue@2.1.4(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/extension-document@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0)))(@tiptap/extension-image@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0)))(@tiptap/extension-mention@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0)(@tiptap/suggestion@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0)))(@tiptap/extension-paragraph@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0)))(@tiptap/extension-placeholder@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0))(@tiptap/extension-text@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0)))(@tiptap/pm@2.4.0)(@tiptap/suggestion@2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))(@tiptap/pm@2.4.0))(@vue/composition-api@1.7.2(vue@3.4.29(typescript@5.5.2)))(pinia@2.1.7(@vue/composition-api@1.7.2(vue@3.4.29(typescript@5.5.2)))(typescript@5.5.2)(vue@3.4.29(typescript@5.5.2)))(vue@3.4.29(typescript@5.5.2))':
     dependencies:
       '@tencentcloud/call-uikit-vue': 3.3.0
       '@tencentcloud/call-uikit-vue2': 3.3.0
-      '@tencentcloud/call-uikit-vue2.6': 3.3.0(vue@3.4.29)
-      '@tencentcloud/chat-uikit-engine': 2.1.4
-      '@tencentcloud/roomkit-web-vue3': 2.4.1(pinia@2.1.7(@vue/composition-api@1.7.2(vue@3.4.29))(vue@3.4.29))(vue@3.4.29)
-      '@tencentcloud/tui-core': 2.1.4
-      '@tencentcloud/tui-customer-service-plugin': 2.1.4(@tencentcloud/tui-core@2.1.4)(@vue/composition-api@1.7.2(vue@3.4.29))(vue@3.4.29)
-      '@tencentcloud/tui-emoji-plugin': 2.1.4(vue@3.4.29)
-      '@tencentcloud/universal-api': 2.1.4
+      '@tencentcloud/call-uikit-vue2.6': 3.3.0(vue@3.4.29(typescript@5.5.2))
+      '@tencentcloud/chat-uikit-engine': 2.2.2
+      '@tencentcloud/roomkit-web-vue3': 2.4.1(pinia@2.1.7(@vue/composition-api@1.7.2(vue@3.4.29(typescript@5.5.2)))(typescript@5.5.2)(vue@3.4.29(typescript@5.5.2)))(vue@3.4.29(typescript@5.5.2))
+      '@tencentcloud/tui-core': 2.2.2
+      '@tencentcloud/tui-customer-service-plugin': 2.2.2(@tencentcloud/tui-core@2.2.2)(@vue/composition-api@1.7.2(vue@3.4.29(typescript@5.5.2)))(vue@3.4.29(typescript@5.5.2))
+      '@tencentcloud/tui-emoji-plugin': 2.2.2(vue@3.4.29(typescript@5.5.2))
+      '@tencentcloud/universal-api': 2.2.2
       '@tiptap/core': 2.4.0(@tiptap/pm@2.4.0)
       '@tiptap/extension-document': 2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))
       '@tiptap/extension-image': 2.4.0(@tiptap/core@2.4.0(@tiptap/pm@2.4.0))
@@ -1030,17 +1068,17 @@ snapshots:
 
   '@tencentcloud/chat@3.4.0': {}
 
-  '@tencentcloud/roomkit-web-vue3@2.4.1(pinia@2.1.7(@vue/composition-api@1.7.2(vue@3.4.29))(vue@3.4.29))(vue@3.4.29)':
+  '@tencentcloud/roomkit-web-vue3@2.4.1(pinia@2.1.7(@vue/composition-api@1.7.2(vue@3.4.29(typescript@5.5.2)))(typescript@5.5.2)(vue@3.4.29(typescript@5.5.2)))(vue@3.4.29(typescript@5.5.2))':
     dependencies:
       '@tencentcloud/chat': 3.4.0
-      '@tencentcloud/tui-core': 2.1.4
+      '@tencentcloud/tui-core': 2.2.2
       '@tencentcloud/tuiroom-engine-js': 2.4.1
-      '@tencentcloud/universal-api': 2.1.4
+      '@tencentcloud/universal-api': 2.2.2
       interactjs: 1.10.27
       mitt: 3.0.1
-      pinia: 2.1.7(@vue/composition-api@1.7.2(vue@3.4.29))(vue@3.4.29)
+      pinia: 2.1.7(@vue/composition-api@1.7.2(vue@3.4.29(typescript@5.5.2)))(typescript@5.5.2)(vue@3.4.29(typescript@5.5.2))
       rtc-detect: 1.0.3
-      vue: 3.4.29
+      vue: 3.4.29(typescript@5.5.2)
 
   '@tencentcloud/tui-core@2.1.4':
     dependencies:
@@ -1048,21 +1086,43 @@ snapshots:
       tim-profanity-filter-plugin: 1.1.0
       tim-upload-plugin: 1.3.0
 
-  '@tencentcloud/tui-customer-service-plugin@2.1.4(@tencentcloud/tui-core@2.1.4)(@vue/composition-api@1.7.2(vue@3.4.29))(vue@3.4.29)':
+  '@tencentcloud/tui-core@2.2.2':
     dependencies:
-      '@tencentcloud/tui-core': 2.1.4
-      '@tencentcloud/universal-api': 2.1.4
-      vue: 3.4.29
-    optionalDependencies:
-      '@vue/composition-api': 1.7.2(vue@3.4.29)
+      '@tencentcloud/chat': 3.4.0
+      tim-profanity-filter-plugin: 1.1.0
+      tim-upload-plugin: 1.3.0
 
-  '@tencentcloud/tui-emoji-plugin@2.1.4(vue@3.4.29)':
+  '@tencentcloud/tui-customer-service-plugin@2.1.4(@tencentcloud/tui-core@2.1.4)(@vue/composition-api@1.7.2(vue@3.4.29(typescript@5.5.2)))(vue@3.4.29(typescript@5.5.2))':
     dependencies:
-      '@tencentcloud/chat-uikit-engine': 2.1.4
       '@tencentcloud/tui-core': 2.1.4
-      '@tencentcloud/universal-api': 2.1.4
-      '@vue/composition-api': 1.7.2(vue@3.4.29)
-      vue: 3.4.29
+      '@tencentcloud/universal-api': 2.2.2
+      vue: 3.4.29(typescript@5.5.2)
+    optionalDependencies:
+      '@vue/composition-api': 1.7.2(vue@3.4.29(typescript@5.5.2))
+
+  '@tencentcloud/tui-customer-service-plugin@2.2.2(@tencentcloud/tui-core@2.2.2)(@vue/composition-api@1.7.2(vue@3.4.29(typescript@5.5.2)))(vue@3.4.29(typescript@5.5.2))':
+    dependencies:
+      '@tencentcloud/tui-core': 2.2.2
+      '@tencentcloud/universal-api': 2.2.2
+      vue: 3.4.29(typescript@5.5.2)
+    optionalDependencies:
+      '@vue/composition-api': 1.7.2(vue@3.4.29(typescript@5.5.2))
+
+  '@tencentcloud/tui-emoji-plugin@2.1.4(vue@3.4.29(typescript@5.5.2))':
+    dependencies:
+      '@tencentcloud/chat-uikit-engine': 2.2.2
+      '@tencentcloud/tui-core': 2.2.2
+      '@tencentcloud/universal-api': 2.2.2
+      '@vue/composition-api': 1.7.2(vue@3.4.29(typescript@5.5.2))
+      vue: 3.4.29(typescript@5.5.2)
+
+  '@tencentcloud/tui-emoji-plugin@2.2.2(vue@3.4.29(typescript@5.5.2))':
+    dependencies:
+      '@tencentcloud/chat-uikit-engine': 2.2.2
+      '@tencentcloud/tui-core': 2.2.2
+      '@tencentcloud/universal-api': 2.2.2
+      '@vue/composition-api': 1.7.2(vue@3.4.29(typescript@5.5.2))
+      vue: 3.4.29(typescript@5.5.2)
 
   '@tencentcloud/tuiroom-engine-js@2.4.1':
     dependencies:
@@ -1071,6 +1131,8 @@ snapshots:
       trtc-cloud-js-sdk: 2.5.0-beta.5
 
   '@tencentcloud/universal-api@2.1.4': {}
+
+  '@tencentcloud/universal-api@2.2.2': {}
 
   '@tiptap/core@2.4.0(@tiptap/pm@2.4.0)':
     dependencies:
@@ -1133,10 +1195,10 @@ snapshots:
 
   '@types/lodash@4.17.5': {}
 
-  '@vitejs/plugin-vue@5.0.5(vite@5.3.1(sass@1.77.5))(vue@3.4.29)':
+  '@vitejs/plugin-vue@5.0.5(vite@5.3.1(sass@1.77.5))(vue@3.4.29(typescript@5.5.2))':
     dependencies:
       vite: 5.3.1(sass@1.77.5)
-      vue: 3.4.29
+      vue: 3.4.29(typescript@5.5.2)
 
   '@vue/compiler-core@3.4.29':
     dependencies:
@@ -1168,9 +1230,9 @@ snapshots:
       '@vue/compiler-dom': 3.4.29
       '@vue/shared': 3.4.29
 
-  '@vue/composition-api@1.7.2(vue@3.4.29)':
+  '@vue/composition-api@1.7.2(vue@3.4.29(typescript@5.5.2))':
     dependencies:
-      vue: 3.4.29
+      vue: 3.4.29(typescript@5.5.2)
 
   '@vue/devtools-api@6.6.3': {}
 
@@ -1190,11 +1252,11 @@ snapshots:
       '@vue/shared': 3.4.29
       csstype: 3.1.3
 
-  '@vue/server-renderer@3.4.29(vue@3.4.29)':
+  '@vue/server-renderer@3.4.29(vue@3.4.29(typescript@5.5.2))':
     dependencies:
       '@vue/compiler-ssr': 3.4.29
       '@vue/shared': 3.4.29
-      vue: 3.4.29
+      vue: 3.4.29(typescript@5.5.2)
 
   '@vue/shared@3.4.29': {}
 
@@ -1337,13 +1399,14 @@ snapshots:
 
   picomatch@2.3.1: {}
 
-  pinia@2.1.7(@vue/composition-api@1.7.2(vue@3.4.29))(vue@3.4.29):
+  pinia@2.1.7(@vue/composition-api@1.7.2(vue@3.4.29(typescript@5.5.2)))(typescript@5.5.2)(vue@3.4.29(typescript@5.5.2)):
     dependencies:
       '@vue/devtools-api': 6.6.3
-      vue: 3.4.29
-      vue-demi: 0.14.8(@vue/composition-api@1.7.2(vue@3.4.29))(vue@3.4.29)
+      vue: 3.4.29(typescript@5.5.2)
+      vue-demi: 0.14.8(@vue/composition-api@1.7.2(vue@3.4.29(typescript@5.5.2)))(vue@3.4.29(typescript@5.5.2))
     optionalDependencies:
-      '@vue/composition-api': 1.7.2(vue@3.4.29)
+      '@vue/composition-api': 1.7.2(vue@3.4.29(typescript@5.5.2))
+      typescript: 5.5.2
 
   postcss@8.4.38:
     dependencies:
@@ -1535,11 +1598,13 @@ snapshots:
     dependencies:
       webrtc-adapter: 8.2.3
 
-  tuicall-engine-webrtc@3.0.9:
+  tuicall-engine-webrtc@3.1.0:
     dependencies:
       '@tencentcloud/chat': 3.4.0
       rtc-ai-denoiser: 1.1.7
       trtc-cloud-js-sdk: 2.5.0
+
+  typescript@5.5.2: {}
 
   uc.micro@2.1.0: {}
 
@@ -1556,19 +1621,21 @@ snapshots:
     dependencies:
       clipboard: 2.0.11
 
-  vue-demi@0.14.8(@vue/composition-api@1.7.2(vue@3.4.29))(vue@3.4.29):
+  vue-demi@0.14.8(@vue/composition-api@1.7.2(vue@3.4.29(typescript@5.5.2)))(vue@3.4.29(typescript@5.5.2)):
     dependencies:
-      vue: 3.4.29
+      vue: 3.4.29(typescript@5.5.2)
     optionalDependencies:
-      '@vue/composition-api': 1.7.2(vue@3.4.29)
+      '@vue/composition-api': 1.7.2(vue@3.4.29(typescript@5.5.2))
 
-  vue@3.4.29:
+  vue@3.4.29(typescript@5.5.2):
     dependencies:
       '@vue/compiler-dom': 3.4.29
       '@vue/compiler-sfc': 3.4.29
       '@vue/runtime-dom': 3.4.29
-      '@vue/server-renderer': 3.4.29(vue@3.4.29)
+      '@vue/server-renderer': 3.4.29(vue@3.4.29(typescript@5.5.2))
       '@vue/shared': 3.4.29
+    optionalDependencies:
+      typescript: 5.5.2
 
   w3c-keyname@2.2.8: {}
 

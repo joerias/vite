@@ -1,9 +1,18 @@
 import { TUILogin } from "@tencentcloud/tui-core";
 import TencentCloudChat from "@tencentcloud/chat";
-import { TUIConversationService } from "@tencentcloud/chat-uikit-engine";
+import TUIChatEngine, { TUIConversationService, TUIGroupService } from "@tencentcloud/chat-uikit-engine";
 import { genTestUserSig } from "../../TUIKit";
+import dayjs from "dayjs";
+
+const thisTime = () => {
+	const result = `${dayjs().get("year")}.${dayjs().get("month") + 1}.${dayjs().get("date")}.${dayjs().get(
+		"hour"
+	)}.${dayjs().get("minute")}`;
+	return result;
+};
 
 // app information
+// 我的腾讯云
 const OPTIONS1 = {
 	SDKAppID: 1600036474,
 	secretKey: "a2725bb024b32ca85f2b151072f779010aabe0b00fd7e84e273c89eb44aa5404",
@@ -16,7 +25,7 @@ const OPTIONS2 = {
 };
 
 export let OPTIONS: any = {};
-OPTIONS = OPTIONS2;
+OPTIONS = OPTIONS1;
 
 let chat = TencentCloudChat.create({
 	SDKAppID: OPTIONS.SDKAppID,
@@ -42,7 +51,49 @@ export const login = async () => {
 	TUILogin.setLogLevel(1);
 };
 
-export const loadGroup = (groupID: string) => {
-	console.log("groupID", groupID);
-	TUIConversationService.switchConversation(`GROUP${groupID}`);
+export const loadGroup = async (groupID: string, callback?: () => void) => {
+	const res = await TUIConversationService.switchConversation(`GROUP${groupID}`);
+	console.log("载入群组成功", res);
+	if (callback) setTimeout(callback, 500);
+};
+
+export const createGroup = async (list: string[]) => {
+	try {
+		const pm: any = {
+			// TUIChatEngine.TYPES.GRP_MEETING（临时会议群）
+			type: TUIChatEngine.TYPES.GRP_MEETING,
+			inviteOption: TUIChatEngine.TYPES.INVITE_OPTIONS_FREE_ACCESS,
+			name: thisTime(),
+			memberList: !list
+				? [
+						{
+							userID: OPTIONS.userID,
+						},
+				  ]
+				: list.map((v) => ({ userID: v })),
+		};
+		const res = await TUIGroupService.createGroup(pm);
+		const {
+			data: {
+				group: { groupID },
+			},
+		} = res;
+		console.log("创建群组成功，入参:", pm, "出参:", res.data);
+		return groupID;
+	} catch (e) {
+		console.warn("创建群组失败：", e);
+	}
+};
+
+// 获得当前群组成员列表
+export const getMember = async (groupID: string) => {
+	try {
+		const {
+			data: { memberList },
+		} = await TUIGroupService.getGroupMemberList({ groupID: `${groupID}` });
+		console.log("获取群组成员成功", memberList);
+		return memberList;
+	} catch (e) {
+		console.warn("获取群组成员失败", e);
+	}
 };
