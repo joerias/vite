@@ -51,10 +51,11 @@ export const login = async () => {
 	TUILogin.setLogLevel(1);
 };
 
-export const loadGroup = async (groupID: string, callback?: () => void) => {
+export const loadGroup = async (groupID: string) => {
 	const res = await TUIConversationService.switchConversation(`GROUP${groupID}`);
 	console.log("载入群组成功", res);
-	if (callback) setTimeout(callback, 500);
+	await new Promise((resolve) => setTimeout(resolve, 300));
+	return await getMember(groupID);
 };
 
 export const createGroup = async (list: string[]) => {

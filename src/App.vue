@@ -8,7 +8,8 @@ const groupID = "@TGS#3WP76SPOH";
 
 onMounted(async () => {
 	await login();
-	await loadGroup(groupID, () => getMember(groupID));
+	const memberList = await loadGroup(groupID);
+	console.log("memberList", memberList);
 });
 
 const group = ref("cat,dog");
