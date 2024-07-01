@@ -1,22 +1,31 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { login, loadGroup, createGroup, getMember } from "@/TUIKit/config/connectTUIKit";
+import { login, loadGroup, createGroup } from "@/TUIKit/config/connectTUIKit";
 import TUIKitComp from "@/components/TUIKitComponent/index.vue";
+import { arrCompare } from "@/utils";
 
 // const groupID = "@TGS#3ZHIWSNOU";
 const groupID = "@TGS#3WP76SPOH";
 
 onMounted(async () => {
 	await login();
-	const memberList = await loadGroup(groupID);
-	console.log("memberList", memberList);
+	memberList.value = await loadGroup(groupID);
 });
 
-const group = ref("cat,dog");
+const memberList = ref<any[]>([]);
+
+const groupCreate = ref("cat,dog");
 const handleCreateGroup = async () => {
-	const list = group.value.trim().split(",");
+	const list = groupCreate.value.trim().split(",");
 	const groupId = await createGroup(list);
 	await loadGroup(groupId);
+};
+
+const groupUpdate = ref("cat, cook");
+const handleUpdateMemberList = async () => {
+	const list = groupUpdate.value.trim().split(",");
+	console.log(arrCompare(memberList.value, list, "nick", "increase"));
+	console.log(arrCompare(memberList.value, list, "nick", "decrease"));
 };
 </script>
 
@@ -25,10 +34,20 @@ const handleCreateGroup = async () => {
 		<div class="side">
 			<div class="box">
 				<div>自动载入群组 {{ groupID }}</div>
+				<div>
+					群组成员
+					<template v-for="o in memberList">
+						{{ o.nick }}
+					</template>
+				</div>
 			</div>
 			<div class="box">
-				<input v-model="group" />
+				<input v-model="groupCreate" />
 				<button @click="handleCreateGroup">多人群组</button>
+			</div>
+			<div class="box">
+				<input v-model="groupUpdate" />
+				<button @click="handleUpdateMemberList">更新群组成员</button>
 			</div>
 		</div>
 		<div class="main">
