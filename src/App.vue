@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { login, loadGroup, createGroup } from "@/TUIKit/config/connectTUIKit";
+import { login, loadGroup, createGroup, loadChat } from "@/TUIKit/config/connectTUIKit";
 import TUIKitComp from "@/components/TUIKitComponent/index.vue";
 import { arrCompare } from "@/utils";
 
@@ -27,6 +27,12 @@ const handleUpdateMemberList = async () => {
 	console.log(arrCompare(memberList.value, list, "nick", "increase"));
 	console.log(arrCompare(memberList.value, list, "nick", "decrease"));
 };
+
+const chatCreate = ref("dog");
+const handleChat = async () => {
+	const res = await loadChat(chatCreate.value);
+	console.log("点对点聊天", res);
+};
 </script>
 
 <template>
@@ -48,6 +54,10 @@ const handleUpdateMemberList = async () => {
 			<div class="box">
 				<input v-model="groupUpdate" />
 				<button @click="handleUpdateMemberList">更新群组成员</button>
+			</div>
+			<div class="box">
+				<input v-model="chatCreate" />
+				<button @click="handleChat">点对点聊天</button>
 			</div>
 		</div>
 		<div class="main">

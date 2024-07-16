@@ -98,3 +98,8 @@ export const getMember = async (groupID: string) => {
 		console.warn("获取群组成员失败", e);
 	}
 };
+
+export const loadChat = async (groupID: string) => {
+	const res = await TUIConversationService.switchConversation(`C2C${groupID}`);
+	console.log("载入单聊成功", res);
+};
