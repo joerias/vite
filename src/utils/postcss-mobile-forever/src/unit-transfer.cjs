@@ -100,7 +100,7 @@ function percentToMaxViewUnit_FIXED_LR(number, maxDisplayWidth, unitPrecision) {
 /** px 转为媒体查询中的 px */
 function pxToMediaQueryPx(number, viewportWidth, idealWidth, unitPrecision, numberStr) {
 	const radio = idealWidth / viewportWidth;
-	const n = round(number * radio, unitPrecision);
+	const n = round(number * 1, unitPrecision);
 	return `${n}px`;
 }
 

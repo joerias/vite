@@ -87,13 +87,13 @@ const defaults = {
 	/** 不做视口单位转换 */
 	disableMobile: false,
 	/** 排除文件 */
-	exclude: null,
+	exclude: [/node_modules/],
 	/** 包含文件 */
 	include: null,
 	/** 单位精确到小数点后几位？ */
 	unitPrecision: 3,
 	/** 选择器黑名单列表 */
-	selectorBlackList: [],
+	selectorBlackList: ["ignore-"],
 	/** 属性黑名单列表 */
 	propertyBlackList: {},
 	/** 属性值的黑名单列表 */

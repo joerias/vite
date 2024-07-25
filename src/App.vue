@@ -147,10 +147,20 @@ window.addEventListener(
 	</a-modal>
 	<a-button @click="xx">ddd</a-button>
 	<div class="f40">40px的内容</div>
+	<div class="f40 m">media40px的内容</div>
+	<div class="f40 ignore-xx">含ignore的40px的内容</div>
 </template>
 
 <style scoped>
 .f40 {
 	font-size: 40px;
+}
+@media (min-width: 700px) {
+	.f40.m {
+		font-size: 60px;
+	}
+}
+.ignore-xx {
+	font-size: 12px;
 }
 </style>
