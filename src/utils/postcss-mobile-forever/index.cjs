@@ -61,13 +61,13 @@ const defaults = {
 	/** 页面最外层选择器，如 `#app`、`.root-class` */
 	appSelector: "#app",
 	/** 标准视图宽度 */
-	viewportWidth: 750,
+	viewportWidth: 1920,
 	/** 视图展示的最大宽度，单位会转换成诸如 min(vw, px) 的形式 */
 	maxDisplayWidth: null,
 	/** 打开媒体查询，打开后将自动关闭 maxDisplayWidth */
-	enableMediaQuery: false,
-	/** 桌面端宽度 */
-	desktopWidth: 600,
+	enableMediaQuery: true,
+	/** 最小桌面端宽度 */
+	desktopWidth: 800,
 	/** 移动端横屏宽度 */
 	landscapeWidth: 425,
 	/** 宽度断点，视图大于这个宽度，则页面使用桌面端宽度 */
@@ -370,7 +370,7 @@ module.exports = (options = {}) => {
 					/** 桌面端视图下的媒体查询 */
 					desktopViewAtRule = postcss.atRule({
 						name: "media",
-						params: `(min-width: ${_minDesktopDisplayWidth}px) and (min-height: ${maxLandscapeDisplayHeight}px)`,
+						params: `(max-width: ${_minDesktopDisplayWidth}px)`,
 						nodes: [],
 					});
 					/** 移动端横屏下的媒体查询 */

@@ -146,6 +146,11 @@ window.addEventListener(
 		</a-form>
 	</a-modal>
 	<a-button @click="xx">ddd</a-button>
+	<div class="f40">40px的内容</div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.f40 {
+	font-size: 40px;
+}
+</style>
